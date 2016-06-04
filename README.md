@@ -1,10 +1,10 @@
-# raindrop-spider
+# python-web-spider
 A simple distribute spider based on scrapy framework.
 
-* [Reference](https://github.com/miracledan/raindrop-spider/blob/master/README.md#reference)
-* [Install](https://github.com/miracledan/raindrop-spider/blob/master/README.md#install)
-* [Fast start](https://github.com/miracledan/raindrop-spider/blob/master/README.md#fast-start)
-* [Development](https://github.com/miracledan/raindrop-spider/blob/master/README.md#development)
+* [Reference](https://github.com/miracledan/python-web-spider/blob/master/README.md#reference)
+* [Install](https://github.com/miracledan/python-web-spider/blob/master/README.md#install)
+* [Fast start](https://github.com/miracledan/python-web-spider/blob/master/README.md#fast-start)
+* [Development](https://github.com/miracledan/python-web-spider/blob/master/README.md#development)
 
 ## Reference
 [scrapy](https://github.com/scrapy/scrapy)<br>
@@ -17,7 +17,7 @@ A simple distribute spider based on scrapy framework.
 $ apt-get install curl libffi-dev libxml2-dev libxslt1-dev -y
 $ apt-get install mongodb -y
 
-$ cd raindrop-spider
+$ cd python-web-spider
 $ virtualenv env
 $ source env/local/bin/activate
 $ pip install -r requirement.txt
@@ -26,17 +26,24 @@ $ pip install -r requirement.txt
 ## Fast start
 ### config scrapyd and then start a scrapyd server
 ```
-$ cd raindrop-spider
+$ cd python-web-spider
 $ mkdir /etc/scrapyd
 $ cp etc/scrapyd.conf /etc/scrapyd
 $ source env/local/bin/activate
 $ scrapyd
 ```
 
+### excute spider by cli
+```
+$ cd python-web-spider
+$ scrapy crawl sf_user
+```
+then you could check result in mongo db
+
 ### deploy scrapy spider
 open a new ssh tab, excute commands to deploy scrapy spider on scrapyd server
 ```
-$ cd raindrop-spider
+$ cd python-web-spider
 $ source env/local/bin/activate
 $ cd spider
 $ scrapyd-deploy
@@ -45,7 +52,7 @@ $ scrapyd-deploy
 ### test spider
 params: uid is the sns account id that you wanna spider
 ```
-$ curl http://localhost:6800/schedule.json -d project=spider -d spider=gh_user -d uid=account-id 
+$ curl http://localhost:6800/schedule.json -d project=spider -d spider=sf_user -d uid=account-id 
 ```
 
 ### check the result

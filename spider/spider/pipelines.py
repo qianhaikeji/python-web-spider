@@ -18,9 +18,7 @@ class MongoDBPipeline(object):
         self.db = connection["raindrop"]
 
         self.user_cols = {
-            'GithubUserItem'       : "gh_user",
-            'SegmentfaultUserItem' : "sf_user",
-            'ZhihuUserItem'        : "zh_user"
+            'SegmentfaultUserItem' : "sf_user"
         }
 
     def saveOrUpdate(self,collection,item):
